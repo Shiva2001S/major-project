@@ -10,14 +10,16 @@ const path = require('path');
 // const controllers = path('./controllers/home');
 
 
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
+
 // app.use(express.urlencoded());
 app.use(cors());
+app.use("/public", express.static(path.join(__dirname, "public")));
 
 // const storage = multer.diskStorage({
 //     destination : async function (req, file, cb) {
-//         if(fs.existsSync('videos')){
-//             await fs.mkdir('videos');
+//         if(fs.existsSync('./videos')){
+//             await fs.mkdir('./videos');
 //         }  
         
 //         return cb(null, 'videos');
@@ -27,7 +29,7 @@ app.use(cors());
 //     },
 // });
 
-// const uploads = multer({storage});
+// const upload = multer({storage});
 
 // router.post('/', uploads.single('video'), async (req, res) => {
 //     console.log("yes");
